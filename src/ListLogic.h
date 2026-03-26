@@ -1,8 +1,8 @@
 #ifndef LISTLOGIC_H_INCLUDED
 #define LISTLOGIC_H_INCLUDED
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 typedef struct BstNode {
     struct BstNode* left;
@@ -11,13 +11,11 @@ typedef struct BstNode {
 
 } Node;
 
-
 typedef struct BstTree {
     Node* head;
 
     int treeCount;
 } BST;
-
 
 void bstInsert(BST* tree, int value);
 bool bstContains(BST* tree, int value);
