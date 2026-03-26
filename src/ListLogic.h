@@ -13,9 +13,9 @@ typedef struct BstNode {
 
 
 typedef struct BstTree {
+    
     Node* head;
 
-    int treeCount;
 } BST;
 
 
@@ -23,4 +23,13 @@ void bstInsert(BST* tree, int value);
 bool bstContains(BST* tree, int value);
 void bstFree(BST* tree);
 void freeNode(Node*);
+int bstHeight(BST* tree);
+int nodeHeight(Node* node); 
+int nodeCounter(Node* node);
+int bstSize(BST* tree);
+int bstMin(BST* tree);
+int bstMax(BST* tree);
+int minData(Node* node);// для bstMin
+int maxData(Node* node);// для bstMax
+int bstMax(BST* tree);
 #endif // LISTLOGIC_H_INCLUDED
