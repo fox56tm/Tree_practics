@@ -4,7 +4,7 @@
 
 int main()
 {
-    BST testTree = { NULL, 0 };
+    BST testTree = { NULL };
 
     bstInsert(&testTree, 10);
     bstInsert(&testTree, 70);
@@ -15,8 +15,6 @@ int main()
     bstInsert(&testTree, 40);
     bstInsert(&testTree, 90);
     bstInsert(&testTree, 50);
-
-    printf("%d\n", bstContains(&testTree, 100));
 
     printf("\n");
     bstPreorder(&testTree);
