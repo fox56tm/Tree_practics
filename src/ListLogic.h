@@ -14,7 +14,6 @@ typedef struct BstNode {
 typedef struct BstTree {
     Node* head;
 
-    int treeCount;
 } BST;
 
 void bstInsert(BST* tree, int value);
