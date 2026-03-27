@@ -1,13 +1,14 @@
-#include "ListLogic.h"\
+#include "ListLogic.h"
 
 int nodeCounter(Node* node)
-{   
-    if (node == NULL) return 0;
+{
+    if (node == NULL)
+        return 0;
 
-    return 1 + nodeCounter(node -> right) + nodeCounter(node -> left);
+    return 1 + nodeCounter(node->right) + nodeCounter(node->left);
 }
 
 int bstSize(BST* tree)
 {
-    nodeCounter(tree -> head);
+    return nodeCounter(tree->head);
 }

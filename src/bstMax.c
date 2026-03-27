@@ -2,15 +2,17 @@
 
 int maxData(Node* node)
 {
-    if (node == NULL) return 0;
+    if (node == NULL)
+        return 0;
 
-    if (node -> right != NULL) return maxData(node -> right);
+    if (node->right != NULL)
+        return maxData(node->right);
 
-    else return node -> data;
-
+    else
+        return node->data;
 }
 
 int bstMax(BST* tree)
 {
-    maxData(tree->head);
+    return maxData(tree->head);
 }

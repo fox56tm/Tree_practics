@@ -1,18 +1,17 @@
 #include "ListLogic.h"
 
-
 int nodeHeight(Node* node)
 {
-    if (node == NULL) return -1;
+    if (node == NULL)
+        return -1;
 
-    int leftH = nodeHeight(node -> left);
+    int leftH = nodeHeight(node->left);
 
-    int rightH = nodeHeight(node -> right);
+    int rightH = nodeHeight(node->right);
 
     return 1 + (leftH > rightH ? leftH : rightH);
 }
 int bstHeight(BST* tree)
 {
-    nodeHeight(tree -> head);
-    
+    return nodeHeight(tree->head);
 }
