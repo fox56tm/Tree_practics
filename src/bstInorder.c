@@ -2,18 +2,17 @@
 
 void nodeChangerIn(Node* node)
 {
-    if (node == NULL) return;
+    if (node == NULL)
+        return;
 
-    nodeChangerIn(node -> left);
+    nodeChangerIn(node->left);
 
-    printf("%d\n", node -> data);
+    printf("%d\n", node->data);
 
-    nodeChangerIn(node -> right);
-
-
+    nodeChangerIn(node->right);
 }
 
 void bstInorder(BST* tree)
 {
-    nodeChangerIn(tree -> head);
+    nodeChangerIn(tree->head);
 }
