@@ -7,13 +7,13 @@ bool bstContains(BST* tree, int value)
 
     while (curr != NULL) {
         if (curr->data == value) {
-            return true; 
+            return true;
         }
 
         if (curr->data > value) {
-            curr = curr->left; 
+            curr = curr->left;
         } else {
-            curr = curr->right; 
+            curr = curr->right;
         }
     }
 
