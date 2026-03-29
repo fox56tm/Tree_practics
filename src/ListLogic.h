@@ -40,4 +40,6 @@ int bstMax(BST* tree); // на пустом дереве вернет 0
 int minData(Node* node); // для bstMin
 
 int maxData(Node* node); // для bstMax
+void bstInorder(BST* tree);
+void nodeChangerIn(Node* node);
 #endif // LISTLOGIC_H_INCLUDED
