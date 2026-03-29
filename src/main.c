@@ -4,14 +4,31 @@
 
 int main()
 {
-    BST testTree = { NULL, 0 };
+    BST testTree1 = { NULL };
 
-    bstInsert(&testTree, 10);
-    bstInsert(&testTree, 20);
-    bstInsert(&testTree, 30);
-    bstInsert(&testTree, 40);
-    bstInsert(&testTree, 50);
-    bstInsert(&testTree, 60);
+    bstInsert(&testTree1, 10);
+    bstInsert(&testTree1, 20);
+    bstInsert(&testTree1, 30);
+    bstInsert(&testTree1, 40);
+    bstInsert(&testTree1, 50);
+    bstInsert(&testTree1, 60);
 
-    printf("%d\n", bstContains(&testTree, 100));
+    bstInorder(&testTree1);
+
+    BST testTree2 = { NULL };
+
+    printf("\n");
+
+    bstInsert(&testTree2, 10);
+    bstInsert(&testTree2, 57);
+    bstInsert(&testTree2, 28);
+    bstInsert(&testTree2, 19);
+
+    bstInorder(&testTree2);
+
+    printf("\n");
+
+    BST* testMergeTree = bstMerge(&testTree1, &testTree2);
+
+    bstInorder(testMergeTree);
 }
