@@ -13,8 +13,6 @@ void bstInsert(BST* tree, int value)
 
         tree->head = newNode;
 
-        tree->treeCount++;
-
         return;
     }
     Node* curr = tree->head;
@@ -38,6 +36,4 @@ void bstInsert(BST* tree, int value)
 
     else
         currPrev->left = newNode;
-
-    tree->treeCount++;
 }
