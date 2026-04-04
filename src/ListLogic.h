@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct BstNode {
     struct BstNode* left;
@@ -13,12 +14,17 @@ typedef struct BstNode {
 
 typedef struct BstTree {
     Node* head;
-
-    int treeCount;
 } BST;
 
 void bstInsert(BST* tree, int value);
 bool bstContains(BST* tree, int value);
 void bstFree(BST* tree);
 void freeNode(Node*);
+void nodeChangerIn(Node* node);
+void bstInorder(BST* tree);
+int nodeCounter(Node* node);
+int bstSize(BST* tree);
+Node* createNode(int* array, int l, int r);
+void nodeChangerInAdd(Node* node, int* arrayForTree, int* index);
+BST* bstMerge(BST* tree1, BST* tree2);
 #endif // LISTLOGIC_H_INCLUDED
