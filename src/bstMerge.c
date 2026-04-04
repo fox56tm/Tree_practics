@@ -33,7 +33,8 @@ void nodeChangerInAdd(Node* node, int* arrayForTree, int* index)
 }
 
 BST* bstMerge(BST* tree1, BST* tree2)
-{
+{   
+    if (tree1 == NULL || tree2 == NULL) {printf("one tree is empty") ;return NULL;}
     size_t lenArrTree1 = bstSize(tree1);
     size_t lenArrTree2 = bstSize(tree2);
     int index1 = 0;
