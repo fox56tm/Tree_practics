@@ -33,6 +33,10 @@ typedef struct Iterator Iterator;
 Iterator* iteratorInit(BST* tree);
 bool iteratorHasNext(Iterator* it);
 int iteratorNext(Iterator* it);
+/**
+ * Возвращает следующий элемент в порядке inorder.
+ * При вызове на исчерпанном итераторе возвращает INT_MIN.
+ */
 void iteratorFree(Iterator* it);
 
 #endif
