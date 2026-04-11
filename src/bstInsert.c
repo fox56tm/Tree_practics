@@ -1,6 +1,4 @@
 #include "ListLogic.h"
-#include <stdio.h>
-#include <stdlib.h>
 void bstInsert(BST* tree, int value)
 {
     Node* newNode = malloc(sizeof(Node));
