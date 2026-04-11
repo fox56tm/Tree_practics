@@ -13,6 +13,10 @@ struct Iterator {
 
 static void push(StackNode** top, Node* node) {
     StackNode* newNode = malloc(sizeof(StackNode));
+    if (newNode == NULL) {
+    // Обработка ошибки: памяти недостаточно
+    fprintf(stderr, "Ошибка: не удалось выделить память для стека\n");
+    return -1; 
     newNode->treeNode = node;
     newNode->next = *top;
     *top = newNode;
