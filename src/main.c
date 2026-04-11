@@ -1,4 +1,5 @@
 #include "ListLogic.h"
+#include <stdio.h>
 
 int main()
 {
@@ -14,13 +15,13 @@ int main()
     bstInsert(&tree, 20);
 
     // Тест F
-    printf("Is valid BST? %d\n", bstIsValid(&tree)); // Должно быть 1
+    printf("Is valid BST? %d\n", bstIsValid(&tree));
 
     // Тест G
-    printf("1st min: %d\n", bstKthMin(&tree, 1)); // 3
-    printf("3rd min: %d\n", bstKthMin(&tree, 3)); // 7
-    printf("7th min: %d\n", bstKthMin(&tree, 7)); // 20
-    printf("10th min (invalid): %d\n", bstKthMin(&tree, 10)); // INT_MIN
+    printf("1st min: %d\n", bstKthMin(&tree, 1));
+    printf("3rd min: %d\n", bstKthMin(&tree, 3));
+    printf("7th min: %d\n", bstKthMin(&tree, 7));
+    printf("10th min (invalid): %d\n", bstKthMin(&tree, 10));
 
     // Тест H
     Iterator* it = iteratorInit(&tree);
