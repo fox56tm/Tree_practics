@@ -36,3 +36,11 @@ int iteratorNext(Iterator* it);
 void iteratorFree(Iterator* it);
 
 #endif
+
+void bstInorder(BST* tree);
+void nodeChangerIn(Node* node);
+void nodeDeliter(Node* node, int value);
+void bstDelete(BST* tree, int value);
+
+#endif // LISTLOGIC_H_INCLUDED
+
