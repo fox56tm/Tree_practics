@@ -52,4 +52,3 @@ void nodeDeliter(Node* node, int value);
 void bstDelete(BST* tree, int value);
 
 #endif // LISTLOGIC_H_INCLUDED
-
