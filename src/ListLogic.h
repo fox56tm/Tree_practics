@@ -1,10 +1,10 @@
 #ifndef LISTLOGIC_H_INCLUDED
 #define LISTLOGIC_H_INCLUDED
 
+#include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 
 typedef struct BstNode {
     struct BstNode* left;
