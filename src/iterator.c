@@ -1,7 +1,7 @@
 #include "ListLogic.h"
-#include <stdlib.h>
 #include <limits.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct StackNode {
     Node* treeNode;
@@ -12,7 +12,8 @@ struct Iterator {
     StackNode* stack;
 };
 
-static void push(StackNode** top, Node* node) {
+static void push(StackNode** top, Node* node)
+{
     StackNode* newNode = (StackNode*)malloc(sizeof(StackNode));
     if (newNode == NULL) {
         fprintf(stderr, "Error: memory allocation failed\n");
@@ -23,7 +24,8 @@ static void push(StackNode** top, Node* node) {
     *top = newNode;
 }
 
-static Node* pop(StackNode** top) {
+static Node* pop(StackNode** top)
+{
     if (*top == NULL) {
         return NULL;
     }
@@ -34,18 +36,20 @@ static Node* pop(StackNode** top) {
     return node;
 }
 
-static void pushLeft(Iterator* it, Node* node) {
+static void pushLeft(Iterator* it, Node* node)
+{
     while (node != NULL) {
         push(&it->stack, node);
         node = node->left;
     }
 }
 
-Iterator* iteratorInit(BST* tree) {
+Iterator* iteratorInit(BST* tree)
+{
     if (tree == NULL || tree->head == NULL) {
         return NULL;
     }
-Iterator* it = (Iterator*)malloc(sizeof(Iterator));
+    Iterator* it = (Iterator*)malloc(sizeof(Iterator));
     if (it == NULL) {
         return NULL;
     }
@@ -54,22 +58,25 @@ Iterator* it = (Iterator*)malloc(sizeof(Iterator));
     return it;
 }
 
-bool iteratorHasNext(Iterator* it) {
+bool iteratorHasNext(Iterator* it)
+{
     return it != NULL && it->stack != NULL;
 }
 
-int iteratorNext(Iterator* it) {
+int iteratorNext(Iterator* it)
+{
     if (!iteratorHasNext(it)) {
         return INT_MIN;
     }
-Node* node = pop(&it->stack);
+    Node* node = pop(&it->stack);
     if (node->right != NULL) {
         pushLeft(it, node->right);
     }
     return node->data;
 }
 
-void iteratorFree(Iterator* it) {
+void iteratorFree(Iterator* it)
+{
     if (it == NULL) {
         return;
     }
