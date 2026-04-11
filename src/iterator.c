@@ -1,6 +1,6 @@
 #include "ListLogic.h"
-#include <limits.h>
 #include <stdlib.h>
+#include <limits.h>
 
 typedef struct StackNode {
     Node* treeNode;
@@ -15,9 +15,9 @@ static void push(StackNode** top, Node* node)
 {
     StackNode* newNode = malloc(sizeof(StackNode));
     if (newNode == NULL) {
-    // Обработка ошибки: памяти недостаточно
-    fprintf(stderr, "Ошибка: не удалось выделить память для стека\n");
-    return -1; 
+        fprintf(stderr, "Ошибка: не удалось выделить память для стека\n");
+        return;
+    }
     newNode->treeNode = node;
     newNode->next = *top;
     *top = newNode;
@@ -28,7 +28,6 @@ static Node* pop(StackNode** top)
     if (*top == NULL) {
         return NULL;
     }
-
     StackNode* temp = *top;
     Node* node = temp->treeNode;
     *top = temp->next;
@@ -49,7 +48,6 @@ Iterator* iteratorInit(BST* tree)
     if (tree == NULL) {
         return NULL;
     }
-
     Iterator* it = malloc(sizeof(Iterator));
     it->stack = NULL;
     pushLeft(it, tree->head);
@@ -66,13 +64,10 @@ int iteratorNext(Iterator* it)
     if (!iteratorHasNext(it)) {
         return INT_MIN;
     }
-
     Node* node = pop(&it->stack);
-
     if (node->right != NULL) {
         pushLeft(it, node->right);
     }
-
     return node->data;
 }
 
@@ -81,7 +76,6 @@ void iteratorFree(Iterator* it)
     if (it == NULL) {
         return;
     }
-
     while (it->stack != NULL) {
         pop(&it->stack);
     }
