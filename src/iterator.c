@@ -1,6 +1,6 @@
 #include "ListLogic.h"
-#include <stdlib.h>
 #include <limits.h>
+#include <stdlib.h>
 
 typedef struct StackNode {
     Node* treeNode;
@@ -34,29 +34,29 @@ static Node* pop(StackNode** top)
     free(temp);
     return node;
 }
-        // Обработка ошибки: памяти недостаточно
-        fprintf(stderr, "Ошибка: не удалось выделить память для стека\n");
-        return -1;
-        newNode->treeNode = node;
-        newNode->next = *top;
-        *top = newNode;
-    }
+// Обработка ошибки: памяти недостаточно
+fprintf(stderr, "Ошибка: не удалось выделить память для стека\n");
+return -1;
+newNode->treeNode = node;
+newNode->next = *top;
+*top = newNode;
+}
 
-    static Node* pop(StackNode * *top)
-    {
-        if (*top == NULL) {
-            return NULL;
-        }
-        StackNode* temp = *top;
-        Node* node = temp->treeNode;
-        *top = temp->next;
-        free(temp);
-        return node;
+static Node* pop(StackNode** top)
+{
+    if (*top == NULL) {
+        return NULL;
     }
-    Iterator* it = malloc(sizeof(Iterator));
-    it->stack = NULL;
-    pushLeft(it, tree->head);
-    return it;
+    StackNode* temp = *top;
+    Node* node = temp->treeNode;
+    *top = temp->next;
+    free(temp);
+    return node;
+}
+Iterator* it = malloc(sizeof(Iterator));
+it->stack = NULL;
+pushLeft(it, tree->head);
+return it;
 }
 
 bool iteratorHasNext(Iterator* it)
@@ -82,56 +82,57 @@ void iteratorFree(Iterator* it)
         return;
     }
     while (it->stack != NULL) {
-        pop(&it->stack != NULL) {
+        pop(&it->stack != NULL)
+        {
 
-    static void pushLeft(Iterator * it, Node * node)
-    {
-        while (node != NULL) {
-            push(&it->stack, node);
-            node = node->left;
-        }
-    }
+            static void pushLeft(Iterator * it, Node * node)
+            {
+                while (node != NULL) {
+                    push(&it->stack, node);
+                    node = node->left;
+                }
+            }
 
-    Iterator* iteratorInit(BST * tree)
-    {
-        if (tree == NULL) {
-            return NULL;
-        }
+            Iterator* iteratorInit(BST * tree)
+            {
+                if (tree == NULL) {
+                    return NULL;
+                }
 
-        Iterator* it = malloc(sizeof(Iterator));
-        it->stack = NULL;
-        pushLeft(it, tree->head);
-        return it;
-    }
+                Iterator* it = malloc(sizeof(Iterator));
+                it->stack = NULL;
+                pushLeft(it, tree->head);
+                return it;
+            }
 
-    bool iteratorHasNext(Iterator * it)
-    {
-        return it != NULL && it->stack != NULL;
-    }
+            bool iteratorHasNext(Iterator * it)
+            {
+                return it != NULL && it->stack != NULL;
+            }
 
-    int iteratorNext(Iterator * it)
-    {
-        if (!iteratorHasNext(it)) {
-            return INT_MIN;
-        }
+            int iteratorNext(Iterator * it)
+            {
+                if (!iteratorHasNext(it)) {
+                    return INT_MIN;
+                }
 
-        Node* node = pop(&it->stack);
+                Node* node = pop(&it->stack);
 
-        if (node->right != NULL) {
-            pushLeft(it, node->right);
-        }
+                if (node->right != NULL) {
+                    pushLeft(it, node->right);
+                }
 
-        return node->data;
-    }
+                return node->data;
+            }
 
-    void iteratorFree(Iterator * it)
-    {
-        if (it == NULL) {
-            return;
-        }
+            void iteratorFree(Iterator * it)
+            {
+                if (it == NULL) {
+                    return;
+                }
 
-        while (it->stack != NULL) {
-            pop(&it->stack);
-        }
-        free(it);
-    }
+                while (it->stack != NULL) {
+                    pop(&it->stack);
+                }
+                free(it);
+            }
