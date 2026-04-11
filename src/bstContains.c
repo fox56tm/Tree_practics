@@ -1,5 +1,4 @@
 #include "ListLogic.h"
-#include <stdio.h>
 
 bool bstContains(BST* tree, int value)
 {
