@@ -1,9 +1,9 @@
 #include "ListLogic.h"
 
+int main()
+{
+    BST tree = { NULL, 0 };
 
-int main() {
-    BST tree = {NULL, 0};
-    
     // Вставляем узлы
     bstInsert(&tree, 10);
     bstInsert(&tree, 5);
@@ -12,16 +12,16 @@ int main() {
     bstInsert(&tree, 7);
     bstInsert(&tree, 12);
     bstInsert(&tree, 20);
-    
+
     // Тест F
-    printf("Is valid BST? %d\n", bstIsValid(&tree));  // Должно быть 1
-    
+    printf("Is valid BST? %d\n", bstIsValid(&tree)); // Должно быть 1
+
     // Тест G
-    printf("1st min: %d\n", bstKthMin(&tree, 1));  // 3
-    printf("3rd min: %d\n", bstKthMin(&tree, 3));  // 7
-    printf("7th min: %d\n", bstKthMin(&tree, 7));  // 20
-    printf("10th min (invalid): %d\n", bstKthMin(&tree, 10));  // INT_MIN
-    
+    printf("1st min: %d\n", bstKthMin(&tree, 1)); // 3
+    printf("3rd min: %d\n", bstKthMin(&tree, 3)); // 7
+    printf("7th min: %d\n", bstKthMin(&tree, 7)); // 20
+    printf("10th min (invalid): %d\n", bstKthMin(&tree, 10)); // INT_MIN
+
     // Тест H
     Iterator* it = iteratorInit(&tree);
     printf("Inorder: ");
@@ -30,7 +30,7 @@ int main() {
     }
     printf("\n");
     iteratorFree(it);
-    
+
     bstFree(&tree);
     return 0;
 }
