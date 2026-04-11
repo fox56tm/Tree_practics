@@ -21,4 +21,9 @@ void bstInsert(BST* tree, int value);
 bool bstContains(BST* tree, int value);
 void bstFree(BST* tree);
 void freeNode(Node*);
+void bstInorder(BST* tree);
+void nodeChangerIn(Node* node);
+void nodeDeliter(Node* node, int value);
+void bstDelete(BST* tree, int value);
+
 #endif // LISTLOGIC_H_INCLUDED
