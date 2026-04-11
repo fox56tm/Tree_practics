@@ -1,6 +1,5 @@
 #include "ListLogic.h"
 
-
 int main()
 {
     BST testTree = { NULL };
