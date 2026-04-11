@@ -34,19 +34,24 @@ static Node* pop(StackNode** top)
     free(temp);
     return node;
 }
-
-static void pushLeft(Iterator* it, Node* node)
-{
-    while (node != NULL) {
-        push(&it->stack, node);
-        node = node->left;
+        // Обработка ошибки: памяти недостаточно
+        fprintf(stderr, "Ошибка: не удалось выделить память для стека\n");
+        return -1;
+        newNode->treeNode = node;
+        newNode->next = *top;
+        *top = newNode;
     }
-}
 
-Iterator* iteratorInit(BST* tree)
-{
-    if (tree == NULL) {
-        return NULL;
+    static Node* pop(StackNode * *top)
+    {
+        if (*top == NULL) {
+            return NULL;
+        }
+        StackNode* temp = *top;
+        Node* node = temp->treeNode;
+        *top = temp->next;
+        free(temp);
+        return node;
     }
     Iterator* it = malloc(sizeof(Iterator));
     it->stack = NULL;
@@ -77,7 +82,56 @@ void iteratorFree(Iterator* it)
         return;
     }
     while (it->stack != NULL) {
-        pop(&it->stack);
+        pop(&it->stack != NULL) {
+
+    static void pushLeft(Iterator * it, Node * node)
+    {
+        while (node != NULL) {
+            push(&it->stack, node);
+            node = node->left;
+        }
     }
-    free(it);
-}
+
+    Iterator* iteratorInit(BST * tree)
+    {
+        if (tree == NULL) {
+            return NULL;
+        }
+
+        Iterator* it = malloc(sizeof(Iterator));
+        it->stack = NULL;
+        pushLeft(it, tree->head);
+        return it;
+    }
+
+    bool iteratorHasNext(Iterator * it)
+    {
+        return it != NULL && it->stack != NULL;
+    }
+
+    int iteratorNext(Iterator * it)
+    {
+        if (!iteratorHasNext(it)) {
+            return INT_MIN;
+        }
+
+        Node* node = pop(&it->stack);
+
+        if (node->right != NULL) {
+            pushLeft(it, node->right);
+        }
+
+        return node->data;
+    }
+
+    void iteratorFree(Iterator * it)
+    {
+        if (it == NULL) {
+            return;
+        }
+
+        while (it->stack != NULL) {
+            pop(&it->stack);
+        }
+        free(it);
+    }
