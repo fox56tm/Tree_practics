@@ -1,6 +1,8 @@
 #include "bst.h"
 void bstInsert(BST* tree, int value)
 {
+    if (!tree)
+        return;
     Node* newNode = malloc(sizeof(Node));
     if (!newNode)
         return;
@@ -13,10 +15,8 @@ void bstInsert(BST* tree, int value)
         tree->nodeCount++;
         return;
     }
-
     Node* curr = tree->root;
     Node* currPrev = tree->root;
-
     while (curr != NULL) {
         currPrev = curr;
         if (value == curr->data) {
