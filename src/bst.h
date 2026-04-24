@@ -12,7 +12,7 @@ typedef struct BstNode {
 
 typedef struct BstTree {
     Node* head;
-    int treeCount;
+    int nodeCount;
 } BST;
 
 void bstInsert(BST* tree, int value);

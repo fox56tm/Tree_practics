@@ -13,4 +13,6 @@ int main()
 
     printf("contains 50 (expected 1): %d\n", bstContains(&testTree, 50));
     printf("contains 100 (expected 0): %d\n", bstContains(&testTree, 100));
+    bstFree(&testTree);
+    printf("bstFree test: testTree must be NULL and nodeCount == 0(expected 1 and 0): %d %d\n", testTree.head == NULL, testTree.nodeCount == 0);
 }

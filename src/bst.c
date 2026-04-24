@@ -8,7 +8,7 @@ void bstInsert(BST* tree, int value)
 
     if (tree->head == NULL) {
         tree->head = newNode;
-        tree->treeCount++;
+        tree->nodeCount++;
         return;
     }
 
@@ -30,7 +30,7 @@ void bstInsert(BST* tree, int value)
     else
         currPrev->left = newNode;
 
-    tree->treeCount++;
+    tree->nodeCount++;
 }
 bool bstContains(BST* tree, int value)
 {
