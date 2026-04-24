@@ -21,7 +21,7 @@ int main()
     bstInsert(&tree, 20);
 
     printf("%d\n", bstContains(&testTree, 100));
-    
+
     Iterator* it = iteratorInit(&tree);
     printf("Inorder: ");
     while (iteratorHasNext(it)) {
@@ -29,9 +29,9 @@ int main()
     }
     printf("\n");
     iteratorFree(it);
-    
+
     bstFree(&tree);
     bstFree(&testTree);
-    
+
     return 0;
 }
