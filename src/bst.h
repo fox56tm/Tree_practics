@@ -18,6 +18,8 @@ typedef struct BstTree {
 void bstInsert(BST* tree, int value);
 bool bstContains(BST* tree, int value);
 void bstFree(BST* tree);
+bool bstIsValid(BST* tree);
+int bstKthMin(BST* tree, int k);
 typedef struct Iterator Iterator;
 Iterator* iteratorInit(BST* tree);
 bool iteratorHasNext(Iterator* it);

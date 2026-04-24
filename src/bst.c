@@ -151,3 +151,51 @@ void iteratorFree(Iterator* it)
         pop(&it->stack);
     free(it);
 }
+
+static bool isValidHelper(Node* node, int min, int max)
+{
+    if (node == NULL)
+        return true;
+    if (node->data <= min || node->data >= max)
+        return false;
+    return isValidHelper(node->left, min, node->data) && isValidHelper(node->right, node->data, max);
+}
+
+bool bstIsValid(BST* tree)
+{
+    if (tree == NULL || tree->root == NULL)
+        return true;
+    return isValidHelper(tree->root, INT_MIN, INT_MAX);
+}
+
+static int counter;
+
+static int inorderKth(Node* node, int k)
+{
+    if (node == NULL)
+        return INT_MIN;
+
+    int left = inorderKth(node->left, k);
+    if (counter >= k)
+        return left;
+
+    counter++;
+    if (counter == k)
+        return node->data;
+
+    return inorderKth(node->right, k);
+}
+
+int bstKthMin(BST* tree, int k)
+{
+    if (tree == NULL || tree->root == NULL || k <= 0)
+        return INT_MIN;
+
+    counter = 0;
+    int result = inorderKth(tree->root, k);
+
+    if (counter < k)
+        return INT_MIN;
+
+    return result;
+}
