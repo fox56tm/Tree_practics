@@ -1,4 +1,4 @@
-#include "ListLogic.h"
+#include "bst.h"
 
 int main()
 {
@@ -11,5 +11,6 @@ int main()
     bstInsert(&testTree, 50);
     bstInsert(&testTree, 60);
 
-    printf("%d\n", bstContains(&testTree, 100));
+    printf("contains 50 (expected 1): %d\n", bstContains(&testTree, 50));
+    printf("contains 100 (expected 0): %d\n", bstContains(&testTree, 100));
 }
