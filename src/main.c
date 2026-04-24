@@ -1,6 +1,4 @@
-#include "ListLogic.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "bst.h"
 
 int main()
 {
@@ -13,5 +11,18 @@ int main()
     bstInsert(&testTree, 50);
     bstInsert(&testTree, 60);
 
-    printf("%d\n", bstContains(&testTree, 100));
+    printf("Contains 100: %d\n", bstContains(&testTree, 100));
+    
+    for (int i = 1; i <= 7; i++) {
+        int kth = bstKthMin(&testTree, i);
+        if (kth != INT_MIN) {
+            printf("%d-th minimum: %d\n", i, kth);
+        } else {
+            printf("%d-th minimum not found\n", i);
+        }
+    }
+    
+    bstFree(&testTree);
+    
+    return 0;
 }
