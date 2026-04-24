@@ -2,18 +2,20 @@
 void bstInsert(BST* tree, int value)
 {
     Node* newNode = malloc(sizeof(Node));
+    if (!newNode)
+        return;
     newNode->data = value;
     newNode->left = NULL;
     newNode->right = NULL;
 
-    if (tree->head == NULL) {
-        tree->head = newNode;
+    if (tree->root == NULL) {
+        tree->root = newNode;
         tree->nodeCount++;
         return;
     }
 
-    Node* curr = tree->head;
-    Node* currPrev = tree->head;
+    Node* curr = tree->root;
+    Node* currPrev = tree->root;
 
     while (curr != NULL) {
         currPrev = curr;
@@ -34,7 +36,9 @@ void bstInsert(BST* tree, int value)
 }
 bool bstContains(BST* tree, int value)
 {
-    Node* curr = tree->head;
+    if (!tree)
+        return false;
+    Node* curr = tree->root;
     while (curr != NULL) {
         if (curr->data == value) {
             return true;
@@ -59,6 +63,9 @@ void freeNode(Node* node)
 }
 void bstFree(BST* tree)
 {
-    freeNode(tree->head);
-    tree->head = NULL;
+    if (!tree)
+        return;
+    freeNode(tree->root);
+    tree->root = NULL;
+    tree->nodeCount = 0;
 }

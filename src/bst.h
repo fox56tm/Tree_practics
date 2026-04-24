@@ -11,7 +11,7 @@ typedef struct BstNode {
 } Node;
 
 typedef struct BstTree {
-    Node* head;
+    Node* root;
     int nodeCount;
 } BST;
 
