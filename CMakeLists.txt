@@ -3,3 +3,6 @@ project(example C)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(main src/main.c src/bst.c)
+
+cmake_minimum_required(VERSION 3.25)
+project(bst)
