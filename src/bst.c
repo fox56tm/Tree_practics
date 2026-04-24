@@ -11,10 +11,8 @@ int nodeHeight(Node* node)
 }
 int bstHeight(BST* tree)
 {
-    if (!tree){
-        printf("please create bst, returned value -1!\n");
+    if (!tree)
         return -1;
-    }
     return nodeHeight(tree->root);
 }
 
@@ -36,7 +34,7 @@ int bstSize(BST* tree)
 }
 
 int maxData(Node* node)
-{   
+{
     if (node->right != NULL)
         return maxData(node->right);
     else
@@ -76,6 +74,8 @@ int bstMin(BST* tree)
 }
 void bstInsert(BST* tree, int value)
 {
+    if (!tree)
+        return;
     Node* newNode = malloc(sizeof(Node));
     if (!newNode)
         return;
