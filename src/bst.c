@@ -1,5 +1,21 @@
 #include "bst.h"
 
+static bool isValidHelper(Node* node, int min, int max)
+{
+    if (node == NULL)
+        return true;
+    if (node->data <= min || node->data >= max)
+        return false;
+    return isValidHelper(node->left, min, node->data) && isValidHelper(node->right, node->data, max);
+}
+
+bool bstIsValid(BST* tree)
+{
+    if (tree == NULL || tree->root == NULL)
+        return true;
+    return isValidHelper(tree->root, INT_MIN, INT_MAX);
+}
+
 void bstInsert(BST* tree, int value)
 {
     if (!tree)
@@ -52,7 +68,7 @@ bool bstContains(BST* tree, int value)
     return false;
 }
 
-void freeNode(Node* node)
+static void freeNode(Node* node)
 {
     if (node == NULL)
         return;
@@ -68,23 +84,4 @@ void bstFree(BST* tree)
     freeNode(tree->root);
     tree->root = NULL;
     tree->nodeCount = 0;
-}
-
-static bool isValidHelper(Node* node, int min, int max)
-{
-    if (node == NULL) {
-        return true;
-    }
-    if (node->data <= min || node->data >= max) {
-        return false;
-    }
-    return isValidHelper(node->left, min, node->data) && isValidHelper(node->right, node->data, max);
-}
-
-bool bstIsValid(BST* tree)
-{
-    if (tree == NULL || tree->root == NULL) {
-        return true;
-    }
-    return isValidHelper(tree->root, INT_MIN, INT_MAX);
 }

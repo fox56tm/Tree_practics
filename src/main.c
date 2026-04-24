@@ -2,23 +2,38 @@
 
 int main()
 {
-    BST testTree = { NULL, 0 };
+    BST tree1 = { NULL, 0 };
+    BST tree2 = { NULL, 0 };
 
-    bstInsert(&testTree, 10);
-    bstInsert(&testTree, 20);
-    bstInsert(&testTree, 30);
-    bstInsert(&testTree, 40);
-    bstInsert(&testTree, 50);
-    bstInsert(&testTree, 60);
+    bstInsert(&tree1, 10);
+    bstInsert(&tree1, 5);
+    bstInsert(&tree1, 15);
+    bstInsert(&tree1, 3);
+    bstInsert(&tree1, 7);
+    bstInsert(&tree1, 12);
+    bstInsert(&tree1, 20);
 
-    printf("Contains 10: %d\n", bstContains(&testTree, 10));   
-    printf("Contains 30: %d\n", bstContains(&testTree, 30));   
-    printf("Contains 60: %d\n", bstContains(&testTree, 60));   
-    
-    printf("Contains 100: %d\n", bstContains(&testTree, 100)); 
-  
-    printf("Is valid BST: %d\n", bstIsValid(&testTree));       
-    
-    bstFree(&testTree);
+    Node* wrongNode = malloc(sizeof(Node));
+    wrongNode->data = 10;
+    wrongNode->left = NULL;
+    wrongNode->right = NULL;
+    tree2.root = wrongNode;
+    tree2.nodeCount = 1;
+
+    Node* leftChild = malloc(sizeof(Node));
+    leftChild->data = 20;
+    leftChild->left = NULL;
+    leftChild->right = NULL;
+    wrongNode->left = leftChild;
+    tree2.nodeCount++;
+
+    printf("Tree1 is valid BST: %d\n", bstIsValid(&tree1));
+    printf("Tree2 is valid BST: %d\n", bstIsValid(&tree2));
+
+    bstFree(&tree1);
+    bstFree(&tree2);
+    free(leftChild);
+    free(wrongNode);
+
     return 0;
 }
