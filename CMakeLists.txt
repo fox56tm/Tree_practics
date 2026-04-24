@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
-project(example C)
+project(bst)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_library(ExampleLib src/bstInsert.c src/bstContains.c src/bstFree.c src/bstMerge.c src/bstInorder.c src/bstSize.c)
+add_library(bstlib src/bst.c)
 
 add_executable(main src/main.c)
-target_link_libraries(main PRIVATE ExampleLib)
+
+target_link_libraries(main PRIVATE bstlib)
