@@ -1,5 +1,4 @@
-#ifndef LISTLOGIC_H_INCLUDED
-#define LISTLOGIC_H_INCLUDED
+#pragma once
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,34 +11,16 @@ typedef struct BstNode {
 } Node;
 
 typedef struct BstTree {
-
-    Node* head;
-
+    Node* root;
+    int nodeCount;
 } BST;
 
 void bstInsert(BST* tree, int value);
-
-bool bstContains(BST* tree, int value);
-
-void bstFree(BST* tree);
-
-void freeNode(Node*);
-
 int bstHeight(BST* tree);
-
 int nodeHeight(Node* node);
-
 int nodeCounter(Node* node);
-
 int bstSize(BST* tree);
-
 int bstMin(BST* tree); // на пустом дереве вернет 0
-
 int bstMax(BST* tree); // на пустом дереве вернет 0
-
 int minData(Node* node); // для bstMin
-
 int maxData(Node* node); // для bstMax
-void bstInorder(BST* tree);
-void nodeChangerIn(Node* node);
-#endif // LISTLOGIC_H_INCLUDED

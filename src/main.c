@@ -1,21 +1,18 @@
-#include "ListLogic.h"
+#include "bst.h"
 
 int main()
 {
-    BST testTree = { NULL };
+    BST testTree = { NULL, 0 };
 
     bstInsert(&testTree, 3);
     bstInsert(&testTree, 1);
     bstInsert(&testTree, 35);
-    bstInsert(&testTree, 43);
+    bstInsert(&testTree, 42);
     bstInsert(&testTree, 17);
-    bstInorder(&testTree);
+
     printf("\n");
-    printf("%d\n", bstHeight(&testTree));
-
-    printf("%d\n", bstSize(&testTree));
-
-    printf("%d\n", bstMin(&testTree));
-
-    printf("%d\n", bstMax(&testTree));
+    printf("testHeight (expected 2): %d\n", bstHeight(&testTree));
+    printf("testSize (expected 5): %d\n", bstSize(&testTree));
+    printf("testMin (expected 1): %d\n", bstMin(&testTree));
+    printf("testMax (expected 42): %d\n", bstMax(&testTree));
 }
