@@ -20,7 +20,7 @@ int bstHeight(BST* tree);
 int nodeHeight(Node* node);
 int nodeCounter(Node* node);
 int bstSize(BST* tree);
-int bstMin(BST* tree); // на пустом дереве вернет 0
-int bstMax(BST* tree); // на пустом дереве вернет 0
+int bstMin(BST* tree); // на пустом дереве вернет -1 и напечает "bst is empty, returned value -1!"
+int bstMax(BST* tree); // на пустом дереве вернет -1 и напечает "bst is empty, returned value -1!"
 int minData(Node* node); // для bstMin
 int maxData(Node* node); // для bstMax

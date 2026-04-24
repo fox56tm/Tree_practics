@@ -11,6 +11,8 @@ int nodeHeight(Node* node)
 }
 int bstHeight(BST* tree)
 {
+    if (!tree)
+        return -1;
     return nodeHeight(tree->root);
 }
 
@@ -24,13 +26,15 @@ int nodeCounter(Node* node)
 
 int bstSize(BST* tree)
 {
+    if (!tree) {
+        printf("please create bst, returned value -1!\n");
+        return -1;
+    }
     return nodeCounter(tree->root);
 }
 
 int maxData(Node* node)
 {
-    if (node == NULL)
-        return 0;
     if (node->right != NULL)
         return maxData(node->right);
     else
@@ -38,13 +42,19 @@ int maxData(Node* node)
 }
 int bstMax(BST* tree)
 {
+    if (!tree) {
+        printf("please create bst, returned value -1!\n");
+        return -1;
+    }
+    if (tree->nodeCount == 0) {
+        printf("bst is empty, returned value -1!\n");
+        return -1;
+    }
     return maxData(tree->root);
 }
 
 int minData(Node* node)
 {
-    if (node == NULL)
-        return 0;
     if (node->left != NULL)
         return minData(node->left);
     else
@@ -52,6 +62,14 @@ int minData(Node* node)
 }
 int bstMin(BST* tree)
 {
+    if (!tree) {
+        printf("please create bst, returned value -1!\n");
+        return -1;
+    }
+    if (tree->nodeCount == 0) {
+        printf("bst is empty, returned value -1!\n");
+        return -1;
+    }
     return minData(tree->root);
 }
 void bstInsert(BST* tree, int value)

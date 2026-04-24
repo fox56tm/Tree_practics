@@ -4,6 +4,9 @@ int main()
 {
     BST testTree = { NULL, 0 };
 
+    printf("min on empty bst (expected: bst is empty, returned value -1!): %d\n", bstMin(&testTree));
+    printf("max on empty bst (expected: bst is empty, returned value -1!): %d\n", bstMax(&testTree));
+
     bstInsert(&testTree, 3);
     bstInsert(&testTree, 1);
     bstInsert(&testTree, 35);
