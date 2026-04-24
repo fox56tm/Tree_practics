@@ -116,11 +116,9 @@ Iterator* iteratorInit(BST* tree)
 {
     if (tree == NULL || tree->root == NULL)
         return NULL;
-
     Iterator* it = (Iterator*)malloc(sizeof(Iterator));
     if (it == NULL)
         return NULL;
-
     it->stack = NULL;
     pushLeft(it, tree->root);
     return it;
@@ -135,11 +133,9 @@ int iteratorNext(Iterator* it)
 {
     if (!iteratorHasNext(it))
         return INT_MIN;
-
     Node* node = pop(&it->stack);
     if (node->right != NULL)
         pushLeft(it, node->right);
-
     return node->data;
 }
 
