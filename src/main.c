@@ -1,11 +1,17 @@
-#include "ListLogic.h"
-#include <stdio.h>
+#include "bst.h"
 
 int main()
 {
+    BST testTree = { NULL, 0 };
     BST tree = { NULL, 0 };
 
-    // Вставляем узлы
+    bstInsert(&testTree, 10);
+    bstInsert(&testTree, 20);
+    bstInsert(&testTree, 30);
+    bstInsert(&testTree, 40);
+    bstInsert(&testTree, 50);
+    bstInsert(&testTree, 60);
+
     bstInsert(&tree, 10);
     bstInsert(&tree, 5);
     bstInsert(&tree, 15);
@@ -14,16 +20,8 @@ int main()
     bstInsert(&tree, 12);
     bstInsert(&tree, 20);
 
-    // Тест F
-    printf("Is valid BST? %d\n", bstIsValid(&tree));
-
-    // Тест G
-    printf("1st min: %d\n", bstKthMin(&tree, 1));
-    printf("3rd min: %d\n", bstKthMin(&tree, 3));
-    printf("7th min: %d\n", bstKthMin(&tree, 7));
-    printf("10th min (invalid): %d\n", bstKthMin(&tree, 10));
-
-    // Тест H
+    printf("%d\n", bstContains(&testTree, 100));
+    
     Iterator* it = iteratorInit(&tree);
     printf("Inorder: ");
     while (iteratorHasNext(it)) {
@@ -31,7 +29,9 @@ int main()
     }
     printf("\n");
     iteratorFree(it);
-
+    
     bstFree(&tree);
+    bstFree(&testTree);
+    
     return 0;
 }

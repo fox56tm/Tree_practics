@@ -1,6 +1,4 @@
-#ifndef LISTLOGIC_H_INCLUDED
-#define LISTLOGIC_H_INCLUDED
-
+#pragma once
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -13,31 +11,15 @@ typedef struct BstNode {
 } Node;
 
 typedef struct BstTree {
-    Node* head;
-    int treeCount;
+    Node* root;
+    int nodeCount;
 } BST;
 
-// Задачи A, B, C
 void bstInsert(BST* tree, int value);
 bool bstContains(BST* tree, int value);
 void bstFree(BST* tree);
-void freeNode(Node*);
-void bstInorder(BST* tree);
-void nodeChangerIn(Node* node);
-void nodeDeliter(Node* node, int value);
-void bstDelete(BST* tree, int value);
-
-// Задача F
-bool bstIsValid(BST* tree);
-
-// Задача G
-int bstKthMin(BST* tree, int k);
-
-// Задача H
 typedef struct Iterator Iterator;
 Iterator* iteratorInit(BST* tree);
 bool iteratorHasNext(Iterator* it);
 int iteratorNext(Iterator* it);
 void iteratorFree(Iterator* it);
-
-#endif // LISTLOGIC_H_INCLUDED
