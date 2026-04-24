@@ -1,4 +1,5 @@
 #pragma once
+#include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,3 +14,8 @@ typedef struct BstTree {
     Node* root;
     int nodeCount;
 } BST;
+
+void bstInsert(BST* tree, int value);
+bool bstContains(BST* tree, int value);
+void bstFree(BST* tree);
+bool bstIsValid(BST* tree);
