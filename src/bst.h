@@ -18,5 +18,5 @@ typedef struct BstTree {
 void bstInsert(BST* tree, int value);
 bool bstContains(BST* tree, int value);
 void bstFree(BST* tree);
-void freeNode(Node*);
+bool bstIsValid(BST* tree);
 int bstKthMin(BST* tree, int k);

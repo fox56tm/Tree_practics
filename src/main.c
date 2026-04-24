@@ -2,27 +2,24 @@
 
 int main()
 {
-    BST testTree = { NULL, 0 };
+    BST tree = { NULL, 0 };
 
-    bstInsert(&testTree, 10);
-    bstInsert(&testTree, 20);
-    bstInsert(&testTree, 30);
-    bstInsert(&testTree, 40);
-    bstInsert(&testTree, 50);
-    bstInsert(&testTree, 60);
+    bstInsert(&tree, 10);
+    bstInsert(&tree, 5);
+    bstInsert(&tree, 15);
+    bstInsert(&tree, 3);
+    bstInsert(&tree, 7);
+    bstInsert(&tree, 12);
+    bstInsert(&tree, 20);
 
-    printf("Contains 100: %d\n", bstContains(&testTree, 100));
-    
-    for (int i = 1; i <= 7; i++) {
-        int kth = bstKthMin(&testTree, i);
-        if (kth != INT_MIN) {
-            printf("%d-th minimum: %d\n", i, kth);
-        } else {
-            printf("%d-th minimum not found\n", i);
-        }
-    }
-    
-    bstFree(&testTree);
-    
+    printf("Is valid BST? %d\n", bstIsValid(&tree));
+
+    printf("1st min: %d\n", bstKthMin(&tree, 1));
+    printf("3rd min: %d\n", bstKthMin(&tree, 3));
+    printf("7th min: %d\n", bstKthMin(&tree, 7));
+    printf("10th min (invalid): %d\n", bstKthMin(&tree, 10));
+
+    bstFree(&tree);
+
     return 0;
 }
