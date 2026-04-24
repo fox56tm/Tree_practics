@@ -1,8 +1,8 @@
-#include "ListLogic.h"
+#include "bst.h"
 
 int main()
 {
-    BST testTree = { NULL };
+    BST testTree = { NULL, 0 };
 
     bstInsert(&testTree, 10);
     bstInsert(&testTree, 70);
@@ -14,8 +14,10 @@ int main()
     bstInsert(&testTree, 90);
     bstInsert(&testTree, 50);
 
-    printf("\n");
+    printf("preorder:\n");
     bstPreorder(&testTree);
-    printf("\n");
+    printf("postorder:\n");
     bstPostorder(&testTree);
+    printf("inorder:\n");
+    bstInorder(&testTree);
 }
