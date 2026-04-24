@@ -7,10 +7,9 @@ typedef struct BstNode {
     struct BstNode* left;
     struct BstNode* right;
     int data;
-
 } Node;
 
 typedef struct BstTree {
-    Node* head;
-    int treeCount;
+    Node* root;
+    int nodeCount;
 } BST;
