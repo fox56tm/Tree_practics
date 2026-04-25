@@ -7,7 +7,6 @@ typedef struct BstNode {
     struct BstNode* left;
     struct BstNode* right;
     int data;
-
 } Node;
 
 typedef struct BstTree {
